@@ -1,0 +1,84 @@
+﻿@model JoCoHome_Dollo.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Titel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Titel)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Land)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Land)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Provincie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Provincie)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Plaats)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Plaats)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Aantalpersonen)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Aantalpersonen)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Slaapkamers)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Slaapkamers)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Typehuisje)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Typehuisje)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Checkin)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Checkin)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Checkout)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Checkout)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Omschrijving)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Omschrijving)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
