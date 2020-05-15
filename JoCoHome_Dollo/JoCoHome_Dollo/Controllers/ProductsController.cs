@@ -20,9 +20,17 @@ namespace JoCoHome_Dollo.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Product.ToListAsync());
+            var Products = from m in _context.Product
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Products = Products.Where(s => s.Titel.Contains(searchString));
+            }
+
+            return View(await Products.ToListAsync());
         }
 
         // GET: Products/Details/5
