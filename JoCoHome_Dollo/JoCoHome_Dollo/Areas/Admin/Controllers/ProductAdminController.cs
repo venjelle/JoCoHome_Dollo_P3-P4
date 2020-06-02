@@ -8,25 +8,25 @@ using Microsoft.EntityFrameworkCore;
 using JoCoHome_Dollo.Data;
 using JoCoHome_Dollo.Models;
 
-namespace JoCoHome_Dollo.Areas.Admin
+namespace JoCoHome_Dollo.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class AdminProductsController : Controller
+    public class ProductAdminController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public AdminProductsController(ApplicationDbContext context)
+        public ProductAdminController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Admin/AdminProducts
+        // GET: Admin/ProductAdmin
         public async Task<IActionResult> Index()
         {
             return View(await _context.Product.ToListAsync());
         }
 
-        // GET: Admin/AdminProducts/Details/5
+        // GET: Admin/ProductAdmin/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,13 +44,13 @@ namespace JoCoHome_Dollo.Areas.Admin
             return View(product);
         }
 
-        // GET: Admin/AdminProducts/Create
+        // GET: Admin/ProductAdmin/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/AdminProducts/Create
+        // POST: Admin/ProductAdmin/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -66,7 +66,7 @@ namespace JoCoHome_Dollo.Areas.Admin
             return View(product);
         }
 
-        // GET: Admin/AdminProducts/Edit/5
+        // GET: Admin/ProductAdmin/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,7 +82,7 @@ namespace JoCoHome_Dollo.Areas.Admin
             return View(product);
         }
 
-        // POST: Admin/AdminProducts/Edit/5
+        // POST: Admin/ProductAdmin/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -117,7 +117,7 @@ namespace JoCoHome_Dollo.Areas.Admin
             return View(product);
         }
 
-        // GET: Admin/AdminProducts/Delete/5
+        // GET: Admin/ProductAdmin/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,7 +135,7 @@ namespace JoCoHome_Dollo.Areas.Admin
             return View(product);
         }
 
-        // POST: Admin/AdminProducts/Delete/5
+        // POST: Admin/ProductAdmin/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
