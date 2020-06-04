@@ -1,7 +1,116 @@
-﻿
-@{
-    ViewData["Title"] = "_Layout";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Paneel</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Admin/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="~/Admin/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Admin/css/adminlte.min.css">
+    <link rel="stylesheet" href="~/Admin/css/skins/skin-blue.min.css">
+    <!-- jQuery 3 -->
+    <script src="~/Admin/js/adminlte.min.js"></script>
+    <!-- Google Font --> 
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Main Header -->
+        <header class="main-header"style="background-color:rgb(55, 75, 53);">
+            <!-- Logo -->
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="logo" style="background-color:rgb(55, 75, 53);">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>JoCoHome</b></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>JoCoHome</b></span>
+            </a>
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation"style="background-color:rgb(55, 75, 53);">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu"style="background-color:rgb(55, 75, 53);">
+                    <ul class="nav navbar-nav">
+                        <!-- User Account Menu -->
+                        <li class="dropdown user user-menu">
 
-<h1>_Layout</h1>
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <button class="btn-block"> <a asp-area="Identity" asp-page="/Account/Manage/Index" class="btn-block">Profile</a></button>
+                            </div>
+                            <div class="pull-right">
+                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button type="submit" class="btn-block">Uitloggen</button>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
+                       
+                           
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+
+                <!-- search form (Optional) -->
+                
+                <!-- /.search form -->
+                <!-- Sidebar Menu -->
+                @Html.Partial("_MainMenu")
+                <!-- /.sidebar-menu -->
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            @if (((bool?)ViewData["NoBox"]) == true)
+            {
+                <section>
+                    @RenderBody()
+                </section>
+            }
+            else
+            {
+                <section class="content">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <h3>@ViewData["Title"]</h3>
+                        </div>
+                        <div class="box-body">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </section>
+            }
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Main Footer -->
+        <footer class="main-footer"style="background-color:rgb(55, 75, 53);">
+            <!-- Default to the left -->
+            <strong>Copyright © 2020 Dollo.</strong> All rights reserved.
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED JS SCRIPTS -->
+    <!-- Bootstrap 3.3.7 -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Admin/js/adminlte.min.js"></script>
+</body>
+</html>
