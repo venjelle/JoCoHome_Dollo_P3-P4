@@ -8,16 +8,17 @@
     <link rel="stylesheet" href="~/css/site.css" />
 
     <style>
-
-        body {
+        body 
+        {
             background-color: #f6e3ca;
         }
 
-        footer {
+        footer
+        {
             width: 20px;
-            background-color: rgb(55, 75, 53);
-            min-height: 490px;
-            top: 100%;
+            background-color: red/*rgb(55, 75, 53)*/;
+            min-height: 10%/*490px*/;
+            top: 100%/*150%*/;
             padding: 10px 0px 25px 0px;
         }
     </style>
@@ -38,17 +39,17 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Products" asp-action="Index">Producten</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Products" asp-action="Index">Producten</a>
                         </li>
                         @* Nieuws pagina komt hier *@
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Nieuws</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Nieuws">Nieuws</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy?</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Contacts" asp-action="Create">Contact</a>
@@ -64,8 +65,8 @@
         </main>
     </div>
 
-    <footer class="footer" style="">
-        <div class="container bottom_border" style="height:390px;">
+    <footer class="footer" style="color: white;">
+        <div class="container bottom_border" style="height:390px">@*390px*@
             <div class="row">
                 <div class=" col-sm-4 col-md col-sm-4  col-12 col" style="left:7%;">
                     <h5 class="headin5_amrc col_white_amrc pt2">Contact:</h5>
@@ -81,26 +82,19 @@
                 <div class=" col-sm-4 col-md  col-6 col">
                     <h5 class="headin5_amrc col_white_amrc pt2">Kaart</h5>
                     <!--headin5_amrc-->
-                    <ul class="footer_ul_amrc">
-                        <li><iframe width="300" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=horizon%20college%20alkmaar&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></li>
-
-                    </ul>
+                    @*<ul class="footer_ul_amrc">*@
+                        @*<li>*@<iframe width="300" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=horizon%20college%20alkmaar&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>@*</li>*@
+                    @*</ul>*@
                     <!--footer_ul_amrc ends here-->
                 </div>
-
-
-
             </div>
         </div>
-
-
 
         <!--foote_bottom_ul_amrc ends here-->
         <p class="text-center">Copyright &copy;2020 | Designed by <a href="https://github.com/venjelle/JoCoHome_Dollo_P3-P4">Dollo</a></p>
 
-
-
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
