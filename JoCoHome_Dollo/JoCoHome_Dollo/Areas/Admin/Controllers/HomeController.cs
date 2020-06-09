@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JoCoHome_Dollo.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Route("Admin/Home/Index")]
+
     public class HomeController : Controller
     {
         ApplicationDbContext _context;

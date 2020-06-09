@@ -11,6 +11,7 @@ using JoCoHome_Dollo.Models;
 namespace JoCoHome_Dollo.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/ProductAdmin")]
     public class ProductAdminController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -27,6 +28,7 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductAdmin/Details/5
+        [Route("Admin/ProductAdmin/Details")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,6 +47,7 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductAdmin/Create
+        [Route("Admin/ProductAdmin/Create")]
         public IActionResult Create()
         {
             return View();
@@ -67,6 +70,7 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductAdmin/Edit/5
+        [Route("ProductAdmin/Edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -118,6 +122,7 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductAdmin/Delete/5
+        [Route("ProductAdmin/Delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
