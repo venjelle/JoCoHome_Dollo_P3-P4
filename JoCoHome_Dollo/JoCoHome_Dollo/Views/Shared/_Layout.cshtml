@@ -6,12 +6,32 @@
     <title>@ViewData["Title"] - JoCoHome</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
+    <style>
+        body 
+        {
+            background-color: #f1e8dd;
+        }
+
+        footer
+        {
+            clear: both;
+            width: 20px;
+            background-color: rgb(55, 75, 53);
+            height: 490px;
+            top: 150%;
+            padding: 10px 0px 25px 0px;
+        }
+    </style>
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: rgb(55, 75, 53); color: white;">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Products" asp-action="Index">JoCoHome_Dollo</a>
+                <img src="~/lib/bootstrap/jocohomelogo.png" height="50" width="50" style="border-radius:100px;" />
+                <br />
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">JoCoHome</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -19,19 +39,21 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="home" asp-action="Index">Admin</a>
-                            </li>
-                        }
-
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Products" asp-action="Index">Producten</a>
+                        </li>
+                        @* Nieuws pagina komt hier *@
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Nieuws">Nieuws</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Contacts" asp-action="Create">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -44,11 +66,36 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; Copyright © 2020 - Dollo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="footer" style="color: white; height:400px;">
+        <div class="container bottom_border" style="height:350px">@*390px*@
+            <div class="row">
+                <div class=" col-sm-4 col-md col-sm-4  col-12 col" style="left:7%;">
+                    <h5 class="headin5_amrc col_white_amrc pt2">Contact:</h5>
+                    <!--headin5_amrc-->
+                    <p class="mb10">
+                    <p><i class="fa fa-location-arrow" style="margin-top:5%;"></i> Alkmaar</p>
+                    <p><i class="fa fa-phone" style="margin-top:5%;"></i>  +31 6 543210  </p>
+                    <p><i class="fa fa fa-envelope" style="margin-top:5%;"></i> JoCoHome@gmail.com  </p>
+
+
+                </div>
+
+                <div class=" col-sm-4 col-md  col-6 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2">Kaart</h5>
+                    <!--headin5_amrc-->
+                    @*<ul class="footer_ul_amrc">*@
+                        @*<li>*@<iframe width="300" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=horizon%20college%20alkmaar&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>@*</li>*@
+                    @*</ul>*@
+                    <!--footer_ul_amrc ends here-->
+                </div>
+            </div>
         </div>
+
+        <!--foote_bottom_ul_amrc ends here-->
+        <p class="text-center" style="margin-top:-3%;">Copyright &copy;2020 | Designed by <a href="https://github.com/venjelle/JoCoHome_Dollo_P3-P4">Dollo</a></p>
+
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
