@@ -22,6 +22,12 @@
             top: 150%;
             padding: 10px 0px 25px 0px;
         }
+        ul {
+            line-height: 100%
+        }
+            li {
+            margin: 5px 0;
+        }
     </style>
 
 </head>
@@ -39,6 +45,12 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="Admin" asp-controller="home" asp-action="Index">Admin</a>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
@@ -66,27 +78,40 @@
         </main>
     </div>
 
-    <footer class="footer" style="color: white; height:400px;">
-        <div class="container bottom_border" style="height:350px">@*390px*@
+    <footer class="footer" style="color: white; height:350px; width:100%">
+        <div class="container bottom_border" style="height:300px">
             <div class="row">
-                <div class=" col-sm-4 col-md col-sm-4  col-12 col" style="left:7%;">
+                <div class=" col-sm-4 col-md col-sm-4  col-12 col" style="width:33%;">
                     <h5 class="headin5_amrc col_white_amrc pt2">Contact:</h5>
                     <!--headin5_amrc-->
                     <p class="mb10">
-                    <p><i class="fa fa-location-arrow" style="margin-top:5%;"></i> Alkmaar</p>
-                    <p><i class="fa fa-phone" style="margin-top:5%;"></i>  +31 6 543210  </p>
-                    <p><i class="fa fa fa-envelope" style="margin-top:5%;"></i> JoCoHome@gmail.com  </p>
+                    <li>Plaats: Alkmaar</li>
+                    <li>Telefoon nummer: +31 6 543210</li>
+                    <li>E-mail: JoCoHome@gmail.com</li>
 
 
                 </div>
 
-                <div class=" col-sm-4 col-md  col-6 col">
+                <div class=" col-sm-4 col-md  col-6 col" style="width:33%;">
                     <h5 class="headin5_amrc col_white_amrc pt2">Kaart</h5>
                     <!--headin5_amrc-->
                     @*<ul class="footer_ul_amrc">*@
                         @*<li>*@<iframe width="300" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=horizon%20college%20alkmaar&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>@*</li>*@
                     @*</ul>*@
                     <!--footer_ul_amrc ends here-->
+                </div>
+                <div class=" col-sm-4 col-md  col-6 col" style="width:33%;">
+                    <h5 class="headin5_amrc col_white_amrc pt2">Openingstijden</h5>
+                    <ul>
+                        <li>Openingstijden</li>
+                        <li>maandag 12:00–22:00</li>
+                        <li>dinsdag 12:00–22:00</li>
+                        <li>woensdag 12:00–22:00</li>
+                        <li>donderdag 12:00–22:00</li>
+                        <li>vrijdag 12:00–22:00</li>
+                        <li>zaterdag 12:00–22:00</li>
+                        <li>zondag 12:00–22:00</li>
+                    </ul>
                 </div>
             </div>
         </div>
