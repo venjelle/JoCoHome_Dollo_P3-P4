@@ -11,7 +11,7 @@ using JoCoHome_Dollo.Models;
 namespace JoCoHome_Dollo.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("Admin/ProductAdmin")]
+    
     public class ProductAdminController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,6 +22,7 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductAdmin
+        [Route("Admin/ProductAdmin")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Product.ToListAsync());
@@ -72,7 +73,7 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductAdmin/Edit/5
-        [Route("ProductAdmin/Edit")]
+      
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -91,6 +92,7 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         // POST: Admin/ProductAdmin/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Route("admin/ProductAdmin/Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Titel,Image,Land,Provincie,Plaats,Aantalpersonen,Slaapkamers,Typehuisje,Checkin,Checkout,Omschrijving")] Product product)
@@ -124,7 +126,7 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductAdmin/Delete/5
-        [Route("ProductAdmin/Delete")]
+        
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -143,6 +145,7 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         }
 
         // POST: Admin/ProductAdmin/Delete/5
+        [Route("Admin/ProductAdmin/Delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
