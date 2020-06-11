@@ -47,7 +47,8 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         }
 
         // GET: Admin/ProductAdmin/Create
-        [Route("Admin/ProductAdmin/Create")]
+        //[Route("Admin/ProductAdmin/Create")]
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -57,6 +58,7 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Route("Admin/ProductAdmin/Create")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Titel,Image,Land,Provincie,Plaats,Aantalpersonen,Slaapkamers,Typehuisje,Checkin,Checkout,Omschrijving")] Product product)
         {
