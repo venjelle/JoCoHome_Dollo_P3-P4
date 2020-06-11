@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Admin Paneel</title>
+    <title>Admin Panel</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
@@ -27,7 +27,7 @@
             <!-- Logo -->
             <a asp-area="" asp-controller="Home" asp-action="Index" class="logo" style="background-color:rgb(55, 75, 53);">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>JoCoHome</b></span>
+                @*<span class="logo-mini"><b>JoCoHome</b></span>*@
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg"><b>JoCoHome</b></span>
             </a>
@@ -45,11 +45,13 @@
 
                         <li class="user-footer">
                             <div class="pull-left">
-                                <button class="btn-block"> <a asp-area="Identity" asp-page="/Account/Manage/Index" class="btn-block">Profile</a></button>
+                                @*<button class="btn-block"> <a asp-area="Identity" asp-page="/Account/Manage/Index" class="btn-block">Profiel</a></button>*@
+                                <button class="btn btn-outline-info"> <a asp-area="Identity" asp-page="/Account/Manage/Index" class="btn btn-outline-info">Profiel</a></button>
                             </div>
                             <div class="pull-right">
                                 <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                    <button type="submit" class="btn-block">Uitloggen</button>
+                                    @*<button type="submit" class="btn-block">Uitloggen</button>*@
+                                    <button type="button" class="btn btn-outline-light">Uitloggen</button>
                                 </form>
                             </div>
                         </li>
@@ -103,7 +105,7 @@
         <!-- Main Footer -->
         <footer class="main-footer"style="background-color:rgb(55, 75, 53);">
             <!-- Default to the left -->
-            <strong>Copyright © 2020 Dollo.</strong> All rights reserved.
+            <strong>Copyright © 2020 Dollo.</strong> Alle rechten voorbehouden.
         </footer>
     </div>
     <!-- ./wrapper -->
