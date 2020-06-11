@@ -1,80 +1,80 @@
 ﻿@model JoCoHome_Dollo.Models.Product
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Toevoegen";
 }
 
-<h1>Create</h1>
+<h1>Nieuw huisje toevoegen</h1>
 
-<h4>Product</h4>
+@*<h4>Product</h4>*@
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Titel" class="control-label"></label>
+                <label asp-for="Titel" class="control-label">Titel:</label>
                 <input asp-for="Titel" class="form-control" />
                 <span asp-validation-for="Titel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
+                <label asp-for="Image" class="control-label">Afbeelding:</label>
                 <input asp-for="Image" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Land" class="control-label"></label>
+                <label asp-for="Land" class="control-label">Land:</label>
                 <input asp-for="Land" class="form-control" />
                 <span asp-validation-for="Land" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Provincie" class="control-label"></label>
+                <label asp-for="Provincie" class="control-label">Provincie:</label>
                 <input asp-for="Provincie" class="form-control" />
                 <span asp-validation-for="Provincie" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Plaats" class="control-label"></label>
+                <label asp-for="Plaats" class="control-label">Plaats:</label>
                 <input asp-for="Plaats" class="form-control" />
                 <span asp-validation-for="Plaats" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Aantalpersonen" class="control-label"></label>
+                <label asp-for="Aantalpersonen" class="control-label">Aantal Personen:</label>
                 <input asp-for="Aantalpersonen" class="form-control" />
                 <span asp-validation-for="Aantalpersonen" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Slaapkamers" class="control-label"></label>
+                <label asp-for="Slaapkamers" class="control-label">Aantal slaapkamers:</label>
                 <input asp-for="Slaapkamers" class="form-control" />
                 <span asp-validation-for="Slaapkamers" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Typehuisje" class="control-label"></label>
+                <label asp-for="Typehuisje" class="control-label">Type huisje:</label>
                 <input asp-for="Typehuisje" class="form-control" />
                 <span asp-validation-for="Typehuisje" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Checkin" class="control-label"></label>
+                <label asp-for="Checkin" class="control-label">Incheck tijd:</label>
                 <input asp-for="Checkin" class="form-control" />
                 <span asp-validation-for="Checkin" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Checkout" class="control-label"></label>
+                <label asp-for="Checkout" class="control-label">Uitcheck tijd:</label>
                 <input asp-for="Checkout" class="form-control" />
                 <span asp-validation-for="Checkout" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Omschrijving" class="control-label"></label>
+                <label asp-for="Omschrijving" class="control-label">Omschrijving:</label>
                 <input asp-for="Omschrijving" class="form-control" />
                 <span asp-validation-for="Omschrijving" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Aanmaken" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Details">Back to List</a>
+    <a asp-action="Details">Terug naar de huisjes</a>
 </div>
 
