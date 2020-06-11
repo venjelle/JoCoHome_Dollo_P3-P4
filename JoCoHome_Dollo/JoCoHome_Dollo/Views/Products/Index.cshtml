@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<JoCoHome_Dollo.Models.Product>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Huisjes";
 }
 
 <div class="customcontainer">
         
         <br />
-        <h1>Vakantie huisjes</h1>
+        <h1>Vakantiehuisjes</h1>
 
         @if (TempData["Message"] != null)
         {
@@ -32,9 +32,6 @@
                 }
             </script>
         }
-
-       
-
 
         <hr />
         <br />
@@ -64,12 +61,10 @@
                                     <p style="color: grey; margin-top:5%;">Type huisje: @Html.DisplayFor(modelItem => item.Typehuisje)</p>
                                 </div>
                             </div>
-
                         </a>
                     </div>
                 }
             </div>
-
         </div>
     </div>
 
