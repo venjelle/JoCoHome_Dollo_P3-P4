@@ -4,98 +4,72 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<<div class="customcontainer">
+        
+        <br />
+        <h1>Vakantie huisjes</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<form asp-controller="Products" asp-action="Index">
-    <p>
-        Zoek: <input type="text" name="SearchString">
-        <input type="submit" value="Filter" />
-    </p>
-</form>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Titel)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Land)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Provincie)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Plaats)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Aantalpersonen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Slaapkamers)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Typehuisje)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Checkin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Checkout)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Omschrijving)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Land)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Provincie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Plaats)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Aantalpersonen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Slaapkamers)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Typehuisje)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Checkin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Checkout)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Omschrijving)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        @if (TempData["Message"] != null)
+        {
+            <div id="helpdiv" class="alert alert-success" role="alert" style="
+
+                position: absolute;
+                top: 25%;
+                left:25px;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                ">
+
+                @TempData["Message"]
+            </div>
+            <script type="text/javascript">
+                // close the div in 5 secs
+                window.setTimeout("closeHelpDiv();", 1600);
+
+                function closeHelpDiv() {
+                    document.getElementById("helpdiv").style.display = " none";
+                }
+            </script>
+        }
+
+       
+
+
+        <hr />
+        <br />
+
+        <div class=".container">
+            <div class="row" style="margin:0">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3" id="@( "product" + @item.ID )" style=" padding:0px; text-align: center; align-content:center; text-decoration: none;">
+                        <a asp-action="Detailpagina" asp-route-id="@item.ID" style="text-decoration: none;">
+
+                            <div class="card" style="height: 450px; text-align: center; align-content:center; margin-left:15px;">
+
+                                <div style="width: 50%; margin-top: 10px; margin-left: 25%; "><img src="https://www.mupload.nl/img/cqgqp0m1ojaj.jpg" alt="Alternate Text" style="height: 100%; width:100%;" /></div>
+                                
+                                <div style="width: 100%; height: 20px; margin-bottom: 20px; text-align: center;">
+                                    <p style="color: grey; margin-top:5%;">@Html.DisplayFor(modelItem => item.Titel)</p>
+                                                                
+                                    <p style="color: grey; margin-top:5%;">Land:    @Html.DisplayFor(modelItem => item.Land)</p>
+                                                                
+                                    <p style="color: grey; margin-top:5%;">Provincie:   @Html.DisplayFor(modelItem => item.Provincie)</p>
+                                
+                                    <p style="color: grey; margin-top:5%;">Plaats:  @Html.DisplayFor(modelItem => item.Plaats)</p>
+                                                                    
+                                    <p style="color: grey; margin-top:5%;">Aantal personen: @Html.DisplayFor(modelItem => item.Aantalpersonen)</p>
+                                
+                                    <p style="color: grey; margin-top:5%;">Type huisje: @Html.DisplayFor(modelItem => item.Typehuisje)</p>
+                                </div>
+                            </div>
+
+                        </a>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+

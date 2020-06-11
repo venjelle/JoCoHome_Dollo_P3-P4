@@ -157,5 +157,51 @@ namespace JoCoHome_Dollo.Controllers
         {
             return _context.Product.Any(e => e.ID == id);
         }
+
+        public async Task<IActionResult> Detailpagina(int? id)
+{
+    MultipleProducts multipleProducts = new MultipleProducts();
+    if (id == null)
+    {
+        return NotFound();
+    }
+
+    var product = await _context.Product
+        .FirstOrDefaultAsync(m => m.ID == id);
+
+
+  
+    List<Product> RandomRelated = new List<Product>();
+    List<Product> RandomRelatedCategory = new List<Product>();
+
+    int RelatedItems = 0;
+  
+
+    List<int> number = new List<int>();
+    bool NumberCheck = false;
+    int check = product.ID;
+    number.Add(check);
+    
+
+    multipleProducts.Product = product;
+    multipleProducts.RelatedProducts = RandomRelated;
+
+    if (product == null)
+    {
+        return NotFound();
+    }
+
+  
+
+    Console.WriteLine("Foreach " + number.Count);
+    foreach (var item in number)
+    {
+        Console.WriteLine("Number in list : " + item);
+    }
+
+    return View(multipleProducts);
+}
     }
 }
+
+

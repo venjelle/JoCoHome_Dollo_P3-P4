@@ -14,5 +14,6 @@ namespace JoCoHome_Dollo.Data
         {
         }
         public DbSet<JoCoHome_Dollo.Models.Product> Product { get; set; }
+        public DbSet<JoCoHome_Dollo.Models.Contact> Contact { get; set; }
     }
 }
