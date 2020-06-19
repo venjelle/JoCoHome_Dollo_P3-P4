@@ -1,0 +1,60 @@
+﻿@model JoCoHome_Dollo.Models.MultipleNieuws
+@{
+    ViewData["Title"] = "Detailpagina";
+}
+
+<div class="categories">
+    <div class="cats" style="margin-top:0;padding:0;">
+        <a style="margin-right:10%;" href="javascript:history.back()"><i class="fa fa-angle-left" style="margin-bottom:0;padding-bottom:0;"></i> terug</a>
+        <a asp-action="Index" asp-controller="Home">Home</a>
+        <i class="fa fa-angle-right" style="margin-left:5px;margin-right:5px;"></i>
+        <a asp-action="Index" asp-controller="Nieuws">Nieuws</a>
+        <i class="fa fa-angle-right" style="margin-left:5px;margin-right:5px;"></i>
+    </div>
+</div>
+
+
+<div class="containerdetail">
+
+    <div class="kaas" style="margin-top: 5%;">
+        <div class="row">
+            <div class="col">
+                <img src="https://www.mupload.nl/img/cqgqp0m1ojaj.jpg" alt="Alternate Text" style="height: 100%; width:100%;" />
+            </div>
+            <div class="col-8">
+                <dd class="col-sm-10">
+                    <h1 style="white-space: nowrap;">
+                        @Html.DisplayFor(m => m.Nieuws.Titel)
+                    </h1>
+                    <hr />
+                </dd>
+
+
+                <dd class="col-sm-10" style="font-weight:bold;">
+                    <p style="color: grey; margin-top:-2%;"> @Html.DisplayFor(m => m.Nieuws.Inleiding)</p>
+                </dd>
+                </br>
+
+                <dd class="col-sm-10">
+                    <p style="color: grey; margin-top:-2%;"> @Html.DisplayFor(m => m.Nieuws.Inhoud)</p>
+                    <p style="color: grey; margin-top:-2%;"> @Html.DisplayFor(m => m.Nieuws.Foto)</p>
+                    </br>
+                    <p style="color: grey; margin-top:-2%;"> @Html.DisplayFor(m => m.Nieuws.Schrijver)</p>
+
+                </dd>
+
+
+            </div>
+
+        </div>
+        <dl class="row">
+            <dd class="col-sm-10">
+
+            </dd>
+        </dl>
+    </div>
+    <br />
+
+
+
+</div>

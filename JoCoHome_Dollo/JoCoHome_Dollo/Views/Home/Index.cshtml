@@ -1,6 +1,19 @@
-﻿@{
-        ViewData["Title"] = "Home";
+﻿@model IEnumerable<JoCoHome_Dollo.Models.Nieuws>
+@{
+    ViewData["Title"] = "Home";
 }
+
+<head>
+    <style id="jsbin-css">
+
+        #wrapper {
+            min-width: 700px; /* geef altijd een minimale width mee */
+            height: 200px;
+            position: relative; /* om absolute te kunnen positioneren */
+        }
+    </style>
+
+</head>
 
 <h2>Zon? Strand.</h2>
 <h2>Rust? Bos.</h2>
@@ -8,7 +21,23 @@
 
 <p>Welkom op de website van JoCoHome. Dé huisjes verhuurdienst die gespecialiseerd is in huisjes rond rustige omgevingen.</p>
 
-<img src="https://cdn.roompot.com/assets/imgs/vakantieparken/nederland/zeeland/roompot-beach-resort/beach-house/beach-house-6-pers/556942/accommodatie-header/640x290/70391.jpg" alt="Alternate Text" style="height: 100%; width:100%;"/>
+<img src="https://cdn.roompot.com/assets/imgs/vakantieparken/nederland/zeeland/roompot-beach-resort/beach-house/beach-house-6-pers/556942/accommodatie-header/640x290/70391.jpg" alt="Alternate Text" style="height: 100%; width:100%;" />
 
-<div style="">Dit zijn</div>
-<div>uw nieuws artikelen.</div>
+<div style="align-content:center;">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3" style="float:left; margin-top:25px; margin-left:5%;">
+
+            <div class="card" style="width: 18rem;">
+                <div style="left:10px; border-left:10px; width:100%; text-align:center;">
+                    <img class="productfoto" src="@item.Foto" alt="Card image cap">
+                </div>
+                <div class="card-body" style="height:100%; top:20px;">
+                    <p class="card-text">@item.Titel</p>
+                    <p class="card-text">@item.Inleiding</p>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>

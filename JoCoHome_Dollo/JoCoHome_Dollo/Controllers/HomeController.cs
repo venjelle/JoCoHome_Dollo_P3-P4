@@ -6,21 +6,25 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using JoCoHome_Dollo.Models;
+using Microsoft.EntityFrameworkCore;
+using JoCoHome_Dollo.Data;
 
 namespace JoCoHome_Dollo.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        Nieuws Nieuws = new Nieuws();
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<Nieuws> Nieuws = _context.Nieuws.ToList();
+            return View(Nieuws);
         }
 
         public IActionResult Privacy()
@@ -32,6 +36,13 @@ namespace JoCoHome_Dollo.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Nieuwtje()
+        {
+            List<Nieuws> Nieuws = _context.Nieuws.ToList();
+            return View(Nieuws);
+
         }
     }
 }

@@ -10,30 +10,30 @@ using JoCoHome_Dollo.Models;
 
 namespace JoCoHome_Dollo.Controllers
 {
-    public class ProductsController : Controller
+    public class NieuwsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ProductsController(ApplicationDbContext context)
+        public NieuwsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Products
+        // GET: Nieuws
         public async Task<IActionResult> Index(string searchString)
         {
-            var Products = from m in _context.Product
-                         select m;
+            var Nieuws = from m in _context.Nieuws
+                           select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                Products = Products.Where(s => s.Titel.Contains(searchString));
+                Nieuws = Nieuws.Where(s => s.Titel.Contains(searchString));
             }
 
-            return View(await Products.ToListAsync());
+            return View(await Nieuws.ToListAsync());
         }
 
-        // GET: Products/Details/5
+        // GET: Nieuws/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -41,39 +41,39 @@ namespace JoCoHome_Dollo.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product
+            var nieuws = await _context.Nieuws
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (product == null)
+            if (nieuws == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(nieuws);
         }
 
-        // GET: Products/Create
+        // GET: Nieuws/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Products/Create
+        // POST: Nieuws/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Titel,Image,Land,Provincie,Plaats,Aantalpersonen,Slaapkamers,Typehuisje,Checkin,Checkout,Omschrijving")] Product product)
+        public async Task<IActionResult> Create([Bind("ID,Titel,Inleiding,Schrijver,Datum,Inhoud,Foto")] Nieuws nieuws)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
+                _context.Add(nieuws);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            return View(nieuws);
         }
 
-        // GET: Products/Edit/5
+        // GET: Nieuws/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,22 +81,22 @@ namespace JoCoHome_Dollo.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product.FindAsync(id);
-            if (product == null)
+            var nieuws = await _context.Nieuws.FindAsync(id);
+            if (nieuws == null)
             {
                 return NotFound();
             }
-            return View(product);
+            return View(nieuws);
         }
 
-        // POST: Products/Edit/5
+        // POST: Nieuws/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Titel,Image,Land,Provincie,Plaats,Aantalpersonen,Slaapkamers,Typehuisje,Checkin,Checkout,Omschrijving")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Titel,Inleiding,Schrijver,Datum,Inhoud,Foto")] Nieuws nieuws)
         {
-            if (id != product.ID)
+            if (id != nieuws.ID)
             {
                 return NotFound();
             }
@@ -105,12 +105,12 @@ namespace JoCoHome_Dollo.Controllers
             {
                 try
                 {
-                    _context.Update(product);
+                    _context.Update(nieuws);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.ID))
+                    if (!NieuwsExists(nieuws.ID))
                     {
                         return NotFound();
                     }
@@ -121,10 +121,10 @@ namespace JoCoHome_Dollo.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            return View(nieuws);
         }
 
-        // GET: Products/Delete/5
+        // GET: Nieuws/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -132,76 +132,76 @@ namespace JoCoHome_Dollo.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product
+            var nieuws = await _context.Nieuws
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (product == null)
+            if (nieuws == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(nieuws);
         }
 
-        // POST: Products/Delete/5
+        // POST: Nieuws/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var product = await _context.Product.FindAsync(id);
-            _context.Product.Remove(product);
+            var nieuws = await _context.Nieuws.FindAsync(id);
+            _context.Nieuws.Remove(nieuws);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductExists(int id)
+        private bool NieuwsExists(int id)
         {
-            return _context.Product.Any(e => e.ID == id);
+            return _context.Nieuws.Any(e => e.ID == id);
+
         }
 
+
         public async Task<IActionResult> Detailpagina(int? id)
-        { 
-         MultipleProducts multipleProducts = new MultipleProducts();
-        if (id == null)
-         {
-             return NotFound();
-         }
+        {
+            MultipleNieuws multipleNieuws = new MultipleNieuws();
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-         var product = await _context.Product
-               .FirstOrDefaultAsync(m => m.ID == id);
+            var Nieuws = await _context.Nieuws
+                  .FirstOrDefaultAsync(m => m.ID == id);
 
 
-  
-          List<Product> RandomRelated = new List<Product>();
-          List<Product> RandomRelatedCategory = new List<Product>();
 
-          int RelatedItems = 0;
-  
+            List<Nieuws> RandomRelated = new List<Nieuws>();
+            List<Nieuws> RandomRelatedCategory = new List<Nieuws>();
 
-          List<int> number = new List<int>();
-          bool NumberCheck = false;
-          int check = product.ID;
-          number.Add(check);
-    
+            int RelatedItems = 0;
 
-           multipleProducts.Product = product;
-           multipleProducts.RelatedProducts = RandomRelated;
 
-           if (product == null)
-           {
-              return NotFound();
-           }
-        
-  
+            List<int> number = new List<int>();
+            bool NumberCheck = false;
+            int check = Nieuws.ID;
+            number.Add(check);
 
-           Console.WriteLine("Foreach " + number.Count);
-          foreach (var item in number)
-          {
-              Console.WriteLine("Number in list : " + item);
-          }
 
-          return View(multipleProducts);
+            multipleNieuws.Nieuws = Nieuws;
+            multipleNieuws.RelatedNieuws = RandomRelated;
+
+            if (Nieuws == null)
+            {
+                return NotFound();
+            }
+
+
+
+            Console.WriteLine("Foreach " + number.Count);
+            foreach (var item in number)
+            {
+                Console.WriteLine("Number in list : " + item);
+            }
+
+            return View(multipleNieuws);
         }
     }
 }
-
-
