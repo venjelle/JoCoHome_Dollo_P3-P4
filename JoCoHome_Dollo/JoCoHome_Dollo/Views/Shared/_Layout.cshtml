@@ -35,7 +35,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: rgb(55, 75, 53); color: white;">
             <div class="container">
-                <img src="~/lib/bootstrap/jocohomelogo.png" height="50" width="50" style="@*border-radius:100px;*@" />
+                <img src="~/lib/bootstrap/jocohomelogo.png" height="50" width="50" />
                 <br />
                 <a class="navbar-brand" style="color: white; margin-left:1rem;" asp-area="" asp-controller="Home" asp-action="Index">JoCoHome</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -57,12 +57,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Contacts" asp-action="Create">Contact</a>
                         </li>
-                        @if (User.IsInRole("Admin"))
+                        @*@if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="Admin" asp-controller="home" asp-action="Index">Admin</a>
                             </li>
-                        }
+                        }*@
                     </ul>
                 </div>
             </div>

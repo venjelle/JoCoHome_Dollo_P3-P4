@@ -9,6 +9,15 @@
         <br />
         <h1>Vakantiehuisjes</h1>
 
+        <hr style="padding-left: 100%;"/>
+
+        <form asp-controller="Products" asp-action="Index" method="get">
+            <p>
+                Huisje: <input type="text" name="SearchString" />
+                       <input type="submit" value="Filter" />
+            </p>
+        </form>
+
         @if (TempData["Message"] != null)
         {
             <div id="helpdiv" class="alert alert-success" role="alert" style="
@@ -33,7 +42,7 @@
             </script>
         }
 
-        <hr />
+        @*<hr />*@
         <br />
 
         <div class=".container">
