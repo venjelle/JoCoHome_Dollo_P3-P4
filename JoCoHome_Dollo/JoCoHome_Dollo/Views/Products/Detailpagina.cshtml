@@ -6,10 +6,6 @@
 <div class="categories">
     <div class="cats" style="margin-top:0;padding:0;">
         <a style="margin-right:10%;" href="javascript:history.back()"><i class="fa fa-angle-left" style="margin-bottom:0;padding-bottom:0;"></i> terug</a>
-        <a asp-action="Index" asp-controller="Home">Home</a>
-        <i class="fa fa-angle-right" style="margin-left:5px;margin-right:5px;"></i>
-        <a asp-action="Index" asp-controller="Products">Huisjes  </a>
-        <i class="fa fa-angle-right" style="margin-left:5px;margin-right:5px;"></i>
     </div>
 </div>
 
@@ -17,11 +13,11 @@
 <div class="containerdetail">
 
     <div class="kaas" style="margin-top: 5%;">
-        <div class="row">
-            <div style="left:10px; border-left:10px; width:25%; height:25%; text-align:center; align-content: left; float:left; position:absolute; margin-right:50px;">
+        <div class="row" style=" width:75%; height:100%; text-align:center; float:left; position:absolute; margin-right:50px;">
+            <div style="left: 10px; border-left: 10px; width: 50%; height: 25%; text-align: center; align-content: center; float: left; margin-right: 50%;">
                 <img class="productfoto" src=@Html.DisplayFor(m => m.Product.Image)>
             </div>
-            <div class="col-8" style="width:50%; float:right; position:absolute;">
+            <div class="col-8" style="width:50%; float:right; text-align: left; margin-left:50%; margin-top:-25%;">
                 <dd class="col-sm-10">
                     <h1 style="white-space: nowrap;">
                         @Html.DisplayFor(m => m.Product.Titel)
