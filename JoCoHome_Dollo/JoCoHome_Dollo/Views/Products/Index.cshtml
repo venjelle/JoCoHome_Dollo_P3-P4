@@ -43,11 +43,13 @@
                     <div class="col-md-3" id="@( "product" + @item.ID )" style=" padding:0px; text-align: center; align-content:center; text-decoration: none;">
                         <a asp-action="Detailpagina" asp-route-id="@item.ID" style="text-decoration: none;">
 
-                            <div class="card" style="height: 450px; text-align: center; align-content:center; margin-left:15px; margin-bottom:15px;">
+                            <div class="card" style="height: 550px; text-align: center; align-content:center; margin-left:15px; margin-bottom:15px;">
 
-                                <div style="width: 50%; margin-top: 10px; margin-left: 25%; "><img src="https://www.mupload.nl/img/cqgqp0m1ojaj.jpg" alt="Alternate Text" style="height: 100%; width:100%;" /></div>
+                                <div style="left:10px; border-left:10px; width:100%; height:25%; text-align:center; align-content: center;">
+                                    <img class="productfoto" src="@item.Image" alt="Card image cap">
+                                </div>
                                 
-                                <div style="width: 100%; height: 20px; margin-bottom: 20px; text-align: center;">
+                                <div style="width: 100%; height: 20px; margin-bottom: 20px; text-align: center; margin-top:25px;">
                                     <p style="color: grey; margin-top:5%;">@Html.DisplayFor(modelItem => item.Titel)</p>
                                                                 
                                     <p style="color: grey; margin-top:5%;">Land:    @Html.DisplayFor(modelItem => item.Land)</p>

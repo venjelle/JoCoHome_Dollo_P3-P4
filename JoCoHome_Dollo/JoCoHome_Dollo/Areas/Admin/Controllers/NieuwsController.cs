@@ -21,12 +21,14 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         }
 
         // GET: Admin/Nieuws
+        [Route("Admin/Nieuws")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Nieuws.ToListAsync());
         }
 
         // GET: Admin/Nieuws/Details/5
+        [Route("Admin/Nieuws/Details")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -54,6 +56,7 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Route("Admin/Nieuws/Create")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Titel,Inleiding,Schrijver,Datum,Inhoud,Foto")] Nieuws nieuws)
         {
@@ -85,6 +88,7 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         // POST: Admin/Nieuws/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Route("Admin/Nieuws/Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Titel,Inleiding,Schrijver,Datum,Inhoud,Foto")] Nieuws nieuws)
@@ -136,6 +140,7 @@ namespace JoCoHome_Dollo.Areas.Admin.Controllers
         }
 
         // POST: Admin/Nieuws/Delete/5
+        [Route("Admin/Nieuws/Delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

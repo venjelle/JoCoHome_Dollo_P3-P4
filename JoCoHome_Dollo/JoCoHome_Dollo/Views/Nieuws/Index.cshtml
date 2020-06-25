@@ -4,20 +4,18 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
+<h1>Nieuws</h1>
 <div style="align-content:center;">
     @foreach (var item in Model)
     {
-    <div class="col-md-3" style="float:left; margin-top:25px; margin-left:5%; height:150px;">
+    <div class="col-md-3" style="float:left; margin-top:25px; margin-left:5%;">
         <a asp-action="Detailpagina" asp-route-id="@item.ID" style="text-decoration: none;">
-
-            <div class="card" style="width: 18rem;">
-                <div style="left:10px; border-left:10px; width:100%; text-align:center;">
+            <div class="card" style="width: 18rem; height:400px;">
+                <div style="left:10px; border-left:10px; width:100%; height:50%; text-align:center; align-content: center;">
                     <img class="productfoto" src="@item.Foto" alt="Card image cap">
                 </div>
                 <div class="card-body" style="height:100%; top:20px;">
-                    <p class="card-text">Titel: @item.Titel</p>
+                    <p class="card-text">@item.Titel</p>
                     <p class="card-text">@item.Inleiding</p>
                 </div>
             </div>

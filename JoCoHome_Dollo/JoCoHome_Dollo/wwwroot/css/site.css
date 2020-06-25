@@ -29,13 +29,32 @@ a {
 html {
   font-size: 14px;
 }
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.productfoto {
+    width: 90%;
+    margin-top: 20px;
+    text-decoration: none
 }
 
-.border-top {
+.productfotodetails {
+    width: 100%;
+}
+
+.containerdetail {
+    align-content: center;
+    margin-top: 10%;
+}
+
+.kaas {
+    margin-bottom: 10%;
+    margin-left: 10%;
+}
+ @media (min-width: 768px) {
+        html {
+            font-size: 16px;
+        }
+    }
+
+    .border-top {
   border-top: 1px solid #e5e5e5;
 }
 .border-bottom {
