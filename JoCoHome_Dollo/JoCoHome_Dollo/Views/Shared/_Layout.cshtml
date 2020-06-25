@@ -35,7 +35,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: rgb(55, 75, 53); color: white;">
             <div class="container">
-                <img src="~/lib/bootstrap/jocohomelogo.png" height="50" width="50" style="border-radius:100px;" />
+                <img src="~/lib/bootstrap/jocohomelogo.png" height="50" width="50" style="@*border-radius:100px;*@" />
                 <br />
                 <a class="navbar-brand" style="color: white; margin-left:1rem;" asp-area="" asp-controller="Home" asp-action="Index">JoCoHome</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -80,10 +80,12 @@
                 <div class=" col-sm-4 col-md col-sm-4  col-12 col" style="width:33%;">
                     <h5 class="headin5_amrc col_white_amrc pt2">Contact</h5>
                     <!--headin5_amrc-->
-                    <p class="mb10">
-                    <li>Plaats: Alkmaar</li>
-                    <li>Telefoon nummer: +31 6 543210</li>
-                    <li>E-mail: JoCoHome@gmail.com</li>
+                    @*<p class="mb10">*@
+                    <ul style="padding: 0; list-style-type: none;">
+                        <li>Plaats: Alkmaar</li>
+                        <li>Telefoonnummer: +31 6 543210</li>
+                        <li>E-mail: JoCoHome@gmail.com</li>
+                    </ul>
                 </div>
 
                 <div class=" col-sm-4 col-md  col-6 col" style="width:33%;">
@@ -96,7 +98,7 @@
                 </div>
                 <div class=" col-sm-4 col-md  col-6 col" style="width:33%;">
                     <h5 class="headin5_amrc col_white_amrc pt2">Openingstijden</h5>
-                    <ul>
+                    <ul style="padding: 0; list-style-type: none;">
                         <li>maandag 12:00–22:00</li>
                         <li>dinsdag 12:00–22:00</li>
                         <li>woensdag 12:00–22:00</li>
@@ -110,7 +112,7 @@
         </div>
 
         <!--foote_bottom_ul_amrc ends here-->
-        <p class="text-center" style="margin-top:-3%;">Copyright &copy;2020 | Ontworpen door <a href="https://github.com/venjelle/JoCoHome_Dollo_P3-P4">Dollo</a></p>
+        <p class="text-center" style="margin-top:-3%; padding-right: 2.8%;">Copyright &copy;2020 | Ontworpen door <a href="https://github.com/venjelle/JoCoHome_Dollo_P3-P4" style="color: white;">Dollo</a></p>
 
     </footer>
 
