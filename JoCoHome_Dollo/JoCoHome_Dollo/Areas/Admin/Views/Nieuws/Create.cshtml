@@ -1,10 +1,10 @@
 ﻿@model JoCoHome_Dollo.Models.Nieuws
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Aanmaken";
 }
 
-<h1>Create</h1>
+@*<h1>Create</h1>*@
 
 <h4>Nieuws</h4>
 <hr />
@@ -43,13 +43,13 @@
                 <span asp-validation-for="Foto" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Plaatsen" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Terug naar artikelen</a>
 </div>
 

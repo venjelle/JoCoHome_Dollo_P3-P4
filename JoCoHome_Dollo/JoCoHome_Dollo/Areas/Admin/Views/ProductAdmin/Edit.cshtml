@@ -1,12 +1,12 @@
 ﻿@model JoCoHome_Dollo.Models.Product
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Wijzigen";
 }
 
-<h1>Edit</h1>
+@*<h1>Edit</h1>*@
 
-<h4>Product</h4>
+<h4>Huis</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -69,13 +69,13 @@
                 <span asp-validation-for="Omschrijving" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Opslaan" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Terug naar huisjes</a>
 </div>
 
